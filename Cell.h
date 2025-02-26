@@ -15,7 +15,7 @@ Cell (double value = 0); //costruttore
     double getValue () const; //metodo per ottenere il valore della cella
     void subscribe (Observer* o ) ; //metodo per aggiungere un observer alla lista di observer
     void unsubscribe (Observer* o ) ; //metodo per rimuovere un observer dalla lista di observer
-    void notify () ; //metodo per notificare tutti gli observer
+    void notifyObserver() ; //metodo per notificare tutti gli observer
 
 private :
     double value ; //valore della cella
