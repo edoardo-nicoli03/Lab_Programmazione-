@@ -14,7 +14,7 @@ class FormulaCell : public Observer {
 public :
     FormulaCell (const std:: vector<Cell*>& cells, FormulaType type); //costruttore
     void update() override; //metodo per aggiornare il valore della cella
-    double getValue() const; //metodo per ottenere il valore della cella
+    double getValue() const ; //metodo per ottenere il valore della cella
 private:
     std :: vector<Cell*> cells; //lista di celle
     FormulaType type; //tipo di formula

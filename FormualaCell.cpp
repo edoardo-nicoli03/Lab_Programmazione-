@@ -19,6 +19,10 @@ void FormulaCell::update() {
     calculateValue();
 }
 
+double FormulaCell::getValue() const {
+    return value;
+}
+
 void FormulaCell::calculateValue(){ //metodo per calcolare il valore della cella
     if (cells.empty()) { //se la lista di celle è vuota, il valore della cella è 0
         return;
