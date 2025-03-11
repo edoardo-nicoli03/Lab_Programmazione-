@@ -43,7 +43,11 @@ void FormulaCell::calculateValue(){ //metodo per calcolare il valore della cella
             }
             break;
         case AVG: //se la formula è di tipo media
-
+        value = 0;
+            for (auto cell : cells) {
+                value += cell->getValue();
+                value /= cells.size(); //si calcola la media
+            }
             break;
     }
 
