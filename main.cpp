@@ -12,6 +12,7 @@ int main() {
     Cell cell6 (60); //creo una cella con valore 60
     Cell cell7 (70); //creo una cella con valore 70
     Cell cell8 (80); //creo una cella con valore 80
+    Cell cell9 ( 0);
 
     std::vector<Cell*> cells = {&cell1, &cell2, &cell3, &cell4, &cell5, &cell6, &cell7, &cell8}; //creo un vettore di puntatori a celle
     FormulaCell sumCell(cells, SUM); //creo una cella di tipo somma
