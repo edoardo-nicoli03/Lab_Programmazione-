@@ -11,7 +11,7 @@
 
 class FoglioCalcolo {
 private:
-    std::vector<Cell*> cells; //lista di celle
+    std::vector<std::vector<Cell>> cells; //lista di celle
     int rows; //numero di righe
     int cols; //numero di colonne
 

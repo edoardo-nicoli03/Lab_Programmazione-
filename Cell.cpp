@@ -6,7 +6,7 @@
 #include <algorithm>
 using namespace std;
 
-Cell::Cell(double value) : value(value) {}
+Cell::Cell(double value) : value(0) {}
 
 void Cell::setValue (double newValue) { //metodo per settare il valore della cella
     value = newValue;

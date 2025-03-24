@@ -16,9 +16,9 @@ Cell (double value = 0); //costruttore
     void subscribe (Observer* o ) ; //metodo per aggiungere un observer alla lista di observer
     void unsubscribe (Observer* o ) ; //metodo per rimuovere un observer dalla lista di observer
     void notifyObserver() ; //metodo per notificare tutti gli observer
-
-private :
     double value ; //valore della cella
+private :
+
     std :: vector <Observer*> observers ; //lista di observer
 
 };

@@ -67,6 +67,12 @@ build CMakeFiles/Laboratorio.dir/FormualaCell.cpp.obj: CXX_COMPILER__Laboratorio
   OBJECT_DIR = CMakeFiles\Laboratorio.dir
   OBJECT_FILE_DIR = CMakeFiles\Laboratorio.dir
 
+build CMakeFiles/Laboratorio.dir/FoglioCalcolo.cpp.obj: CXX_COMPILER__Laboratorio_Debug C$:/Users/Asus/CLionProjects/Laboratorio/FoglioCalcolo.cpp || cmake_object_order_depends_target_Laboratorio
+  DEP_FILE = CMakeFiles\Laboratorio.dir\FoglioCalcolo.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Laboratorio.dir
+  OBJECT_FILE_DIR = CMakeFiles\Laboratorio.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Laboratorio
@@ -75,7 +81,7 @@ build CMakeFiles/Laboratorio.dir/FormualaCell.cpp.obj: CXX_COMPILER__Laboratorio
 #############################################
 # Link the executable Laboratorio.exe
 
-build Laboratorio.exe: CXX_EXECUTABLE_LINKER__Laboratorio_Debug CMakeFiles/Laboratorio.dir/main.cpp.obj CMakeFiles/Laboratorio.dir/Cell.cpp.obj CMakeFiles/Laboratorio.dir/FormualaCell.cpp.obj
+build Laboratorio.exe: CXX_EXECUTABLE_LINKER__Laboratorio_Debug CMakeFiles/Laboratorio.dir/main.cpp.obj CMakeFiles/Laboratorio.dir/Cell.cpp.obj CMakeFiles/Laboratorio.dir/FormualaCell.cpp.obj CMakeFiles/Laboratorio.dir/FoglioCalcolo.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Laboratorio.dir

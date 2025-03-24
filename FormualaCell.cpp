@@ -6,53 +6,56 @@
 #include <iostream>
 #include <limits>
 #include <numeric>
+#include <algorithm>
 
 FormulaCell::FormulaCell(const std::vector<Cell *> &cells, FormulaType type)
-    : cells(cells), type(type), value(0) {
+    : cells(cells), type(type) {
     for (auto cell : cells) {
         cell->subscribe(this);
     }
-    calculateValue();
+    this->value = calculate();
 }
 
 void FormulaCell::update() {
-    calculateValue();
+    this->value = calculate();
 }
 
-double FormulaCell::getValue() const {
-    return value;
-}
 
-void FormulaCell::calculateValue(){ //metodo per calcolare il valore della cella
+
+int FormulaCell::calculate() const { //metodo per calcolare il valore della cella
     if (cells.empty()) { //se la lista di celle è vuota, il valore della cella è 0
-        return;
+        return 0;
     }
     switch (type) {
         case SUM: //se la formula è di tipo somma
-           value = 0;
-            for (auto cell : cells) { //si sommano i valori delle celle
-                value += cell->getValue();
-            }
-            break;
-        case MAX: //se la formula è di tipo massimo
-            value = std::numeric_limits<double>::lowest();
-            for (auto cell : cells) {
-                value = std::max(value, cell->getValue());
-            }
-            break;
-        case MIN: //se la formula è di tipo minimo
-            value = std::numeric_limits<double>::max();
-            for (auto cell : cells) {
-                value = std::min(value, cell->getValue());
-            }
-            break;
+            return std::accumulate(cells.begin(), cells.end(), 0,
+                                   [](int acc, Cell *c) { return acc + c->getValue(); });
+
+        case MAX: { //se la formula è di tipo massimo
+            auto it = std::max_element(cells.begin(), cells.end(),
+                                       [](const Cell *a, const Cell *b) {
+                                           return a->getValue() < b->getValue();
+                                       });
+            return (it != cells.end()) ? (*it)->getValue() : 0;
+    }
+
+
+    case MIN: { //se la formula è di tipo minimo
+        auto it = std::min_element(cells.begin(), cells.end(),
+                                   [](const Cell *a, const Cell *b) {
+                                       return a->getValue() < b->getValue();
+                                   });
+    return (it != cells.end()) ? (*it)->getValue() : 0;
+}
+
+
+
         case AVG: //se la formula è di tipo media
-        value = 0;
-            for (auto cell : cells) {
-                value += cell->getValue();
-                value /= cells.size(); //si calcola la media
-            }
-            break;
+            return std::accumulate(cells.begin(), cells.end(), 0,
+                                  [](int acc, Cell* c) { return acc + c->getValue(); }) / cells.size();
+            default :
+                return 0;
+
     }
 
 }
